@@ -13,3 +13,8 @@ jobs:
         directory: '.'
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
+    - name: Upload Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "MyPack.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
