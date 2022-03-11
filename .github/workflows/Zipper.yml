@@ -14,6 +14,11 @@ jobs:
         git config pull.rebase false
         git pull
         rm ./MyPack/MyPack.zip
+    - name: delete old pack
+      run: |
+        git add -A
+        git commit -m "delete old pack"
+        git push --force
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
