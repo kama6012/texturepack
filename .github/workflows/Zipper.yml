@@ -3,6 +3,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@master
     - name: Archive Release
@@ -16,4 +18,5 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "MyPack.zip"
+        tag: "test"
         token: ${{ secrets.GITHUB_TOKEN }}
