@@ -23,9 +23,7 @@ jobs:
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig/* .zip'
     - name: calculate hash
-      uses: edgarrc/action-7z@v1
-      with:
-        args: 7z h -scrcsha1 ./MyPack/MyPack.zip -bb1
+      run: sha1sum ./MyPack/MyPack.zip
     - name: push changes to remote
       run: |
         git add -A
