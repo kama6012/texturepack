@@ -24,7 +24,7 @@ jobs:
         exclusions: '*.git* /*node_modules/* .editorconfig/* .zip'
     - name: calculate hash
       run: |
-        sha1sum ./MyPack/MyPack.zip > hash1.txt
+        sha1sum ./MyPack/MyPack.zip > hash.txt
     - name: push changes to remote
       run: |
         git add -A
