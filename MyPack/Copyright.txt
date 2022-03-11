@@ -1,0 +1,4 @@
+Credit:
+Pack.PNG	-	Unknown
+Weapon Textures	-	AdamHeller
+Commands	-	HeadBodyScript
