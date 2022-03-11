@@ -993,7 +993,7 @@
 		},
 		"firstperson_righthand": {
 			"rotation": [178, -170, 90],
-			"translation": [7, 16, 0]
+			"translation": [8.5, 21, 0]
 		},
 		"firstperson_lefthand": {
 			"rotation": [85, -5, 92],
