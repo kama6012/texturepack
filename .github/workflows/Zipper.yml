@@ -13,7 +13,7 @@ jobs:
         git config --global user.name "kama6012"
         git config pull.rebase false
         git pull
-        rm -f MyPack.zip
+        rm -f ./MyPack/MyPack.zip
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
@@ -21,7 +21,7 @@ jobs:
         path: "./*"
         directory: './MyPack/'
         filename: 'MyPack.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
+        exclusions: '*.git* /*node_modules/* .editorconfig/* .zip'
     - name: push changes to remote
       run: |
         git add -A
