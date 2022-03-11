@@ -4,8 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
     - name: pull latest and remove old file from repo
       run: |
         git config --global user.name "kama6012"
