@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "./adamheller/glock_2",
-		"2": "./adamheller/black_dura",
-		"3": "./adamheller/glock_4",
-		"particle": "./adamheller/black_dura"
+		"1": "adamheller/glock_2",
+		"2": "adamheller/black_dura",
+		"3": "adamheller/glock_4",
+		"particle": "adamheller/black_dura"
 	},
 	"elements": [
 		{
@@ -991,7 +991,7 @@
 		},
 		"firstperson_righthand": {
 			"rotation": [178, -170, 90],
-			"translation": [8.5, 21, 0]
+			"translation": [7, 21, 0]
 		},
 		"firstperson_lefthand": {
 			"rotation": [85, -5, 92],

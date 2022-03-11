@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "./adamheller/glock_2",
-		"2": "./adamheller/black_dura",
-		"3": "./adamheller/glock_4",
-		"particle": "./adamheller/black_dura"
+		"1": "adamheller/glock_2",
+		"2": "adamheller/black_dura",
+		"3": "adamheller/glock_4",
+		"particle": "adamheller/black_dura"
 	},
 	"elements": [
 		{
