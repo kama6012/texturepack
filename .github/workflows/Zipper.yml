@@ -1,8 +1,5 @@
 name: Create Archive
-on: 
-  push:
-    paths:
-      - './MyPack/*'
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
