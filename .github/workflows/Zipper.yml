@@ -6,6 +6,8 @@ jobs:
     permissions:
       contents: write
     steps:
+    git config --global user.email "kyle.saito2003@gmail.com"
+    git config --global user.name "kama6012"
     - uses: actions/checkout@master
     - name: Archive Release
       uses: thedoctor0/zip-release@master
