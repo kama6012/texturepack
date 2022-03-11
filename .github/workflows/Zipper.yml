@@ -10,5 +10,6 @@ jobs:
       with:
         type: 'zip'
         path: './MyPack'
-        filename: 'release.zip'
+        directory: '.'
+        filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
