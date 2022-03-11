@@ -13,7 +13,7 @@ jobs:
         git config --global user.name "kama6012"
         git config pull.rebase false
         git pull
-        rm -f ./MyPack/MyPack.zip
+        rm ./MyPack/MyPack.zip
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
