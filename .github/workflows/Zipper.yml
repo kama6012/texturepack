@@ -22,6 +22,15 @@ jobs:
         directory: './MyPack/'
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig/* .zip'
+    - name: Calculate sha-1
+      uses: KEINOS/gh-action-hash-for-cache@main
+      id: 'hash'
+      with:
+        path: './MyPack/MyPack.zip'
+    - name: calculate hash
+      uses: edgarrc/action-7z@v1
+      with:
+        args: 7z h -scrcsha1 MyPack.zip
     - name: push changes to remote
       run: |
         git add -A
