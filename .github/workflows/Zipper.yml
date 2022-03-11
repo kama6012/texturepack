@@ -11,7 +11,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
-        path: './MyPack'
+        path: './MyPack/*'
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - name: push changes to remote
