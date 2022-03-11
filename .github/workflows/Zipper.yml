@@ -14,7 +14,7 @@ jobs:
         git pull
         rm -f release.zip
     - name: Archive Release
-      uses: kama6012/texturepack@master
+      uses: kama6012/texturepack@main
       with:
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
