@@ -7,17 +7,22 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@master
+    - name: pull latest and remove old file from repo
+      run: |
+        git config --global user.email "kyle.saito2003@gmail.com"
+        git config --global user.name "kama6012"
+        git config pull.rebase false
+        git pull
+        rm -f MyPack.zip
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
-        path: './MyPack/'
+        path: './MyPack/*'
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - name: push changes to remote
       run: |
-        git config --global user.email "kyle.saito2003@gmail.com"
-        git config --global user.name "kama6012"
         git add -A
         git commit -m "new pack"
         git push --force
