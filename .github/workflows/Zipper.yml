@@ -14,9 +14,8 @@ jobs:
         path: './MyPack'
         filename: 'MyPack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-    - name: Upload Release
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "MyPack.zip"
-        tag: "test"
-        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: push changes to remote
+      run: |
+        git add -A
+        git commit -m "new pack"
+        git push --force
