@@ -14,18 +14,14 @@
       <script type='text/javascript'>
       async function genzip(){
         let zip = new JSZip();
-        fetch('https://github.com/kama6012/texturepack/blob/main/MyPack/MyPack.zip', {
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/zip'
-          },
-        }).then(function(r) {
+        fetch('https://api.github.com/repos/kama6012/texturepack/zipball')
+        .then(function(r) {
           if (!r.ok) {
+            console.log(r)
             throw new Error('Network response was not OK');
           }
           console.log(r)
-        });
-
+        }).catch(error => console.error(error));
         let skin = fetch('https://crafatar.com/skins/565d64224b444734a22eca9ac6039ceb').then(response => response.blob());
         zip.file("skin.png", skin);
         zip.generateAsync({type:"blob"}).then(function(content) {
