@@ -11,10 +11,13 @@
         <script type="text/javascript" src="js/base64.js"></script>
         <script type="text/javascript" src="js/jszip.js"></script>
         <script type="text/javascript" src="js/jszip-utils.js"></script>
+        <script type="module">
+          import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+        </script>
       <script type='text/javascript'>
       async function genzip(){
         let zip = new JSZip();
-        fetch('https://api.github.com/repos/kama6012/texturepack/zipball')
+        fetch('https://github.com/kama6012/texturepack/raw/main/MyPack/MyPack.zip')
         .then(function(r) {
           if (!r.ok) {
             console.log(r)
