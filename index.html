@@ -8,18 +8,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-        <script type="text/javascript" src="js/jszip.min.js"></script>
+        <script type="text/javascript" src="js/base64.js"></script>
+        <script type="text/javascript" src="js/jszip.js"></script>
+        <script type="text/javascript" src="js/jszip-utils.js"></script>
       <script type='text/javascript'>
       async function genzip(){
         let zip = new JSZip();
-        fetch('https://github.com/kama6012/texturepack/blob/main/MyPack/MyPack.zip?raw=true', {
-          mode: "no-cors"
-        })
-        .then(response => {
-          console.log(response.blob());
-          return response.blob();
-        })
-        .then(blob => zip.loadAsync(blob));
+        fetch('https://github.com/kama6012/texturepack/blob/main/MyPack/MyPack.zip', {
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/zip'
+          },
+        }).then(function(r) {
+          if (!r.ok) {
+            throw new Error('Network response was not OK');
+          }
+          console.log(r)
+        });
+
         let skin = fetch('https://crafatar.com/skins/565d64224b444734a22eca9ac6039ceb').then(response => response.blob());
         zip.file("skin.png", skin);
         zip.generateAsync({type:"blob"}).then(function(content) {
