@@ -12,6 +12,14 @@
       <script type='text/javascript'>
       async function genzip(){
         let zip = new JSZip();
+        fetch('https://github.com/kama6012/texturepack/blob/main/MyPack/MyPack.zip?raw=true', {
+          mode: "no-cors"
+        })
+        .then(response => {
+          console.log(response.blob());
+          return response.blob();
+        })
+        .then(blob => zip.loadAsync(blob));
         let skin = fetch('https://crafatar.com/skins/565d64224b444734a22eca9ac6039ceb').then(response => response.blob());
         zip.file("skin.png", skin);
         zip.generateAsync({type:"blob"}).then(function(content) {
