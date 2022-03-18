@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     steps:
     - uses: actions/checkout@master
     - name: pull latest and remove old file from repo
