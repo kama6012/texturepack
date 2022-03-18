@@ -7,29 +7,34 @@
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.js"></script>
         <script type="text/javascript" src="js/base64.js"></script>
         <script type="text/javascript" src="js/jszip.js"></script>
         <script type="text/javascript" src="js/jszip-utils.js"></script>
-        <script type="module">
-          import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-        </script>
       <script type='text/javascript'>
       async function genzip(){
         let zip = new JSZip();
-        fetch('https://github.com/kama6012/texturepack/raw/main/MyPack/MyPack.zip')
-        .then(function(r) {
-          if (!r.ok) {
-            console.log(r)
-            throw new Error('Network response was not OK');
+        let skin = fetch('https://crafatar.com/skins/565d64224b444734a22eca9ac6039ceb')
+        .then(response => response.blob())
+        .then(skin => {
+          zip.file("assets/minecraft/textures/skin.png", skin)
+        })
+        fetch('https://api.github.com/repos/kama6012/texturepack/contents/MyPack/MyPack.zip?ref=main',{
+          headers: {
+            'Authorization': 'token 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',
+            "Accept": "application/vnd.github.v3+json"
           }
-          console.log(r)
-        }).catch(error => console.error(error));
-        let skin = fetch('https://crafatar.com/skins/565d64224b444734a22eca9ac6039ceb').then(response => response.blob());
-        zip.file("skin.png", skin);
-        zip.generateAsync({type:"blob"}).then(function(content) {
-          saveAs(content, "example.zip");
-        });
+        })
+        .then(response => response.json())
+        .then(data => {
+          let content = JSON.stringify(data['content'])
+          content = content.replace(/\"/g, "").replace(/\\n/g, "");
+          zip.loadAsync(content, {base64: true})
+          .then(dev => {
+            zip.generateAsync({type:"blob"}).then(content => saveAs(content, "example.zip"))
+          })
+        })
+        .catch(error => console.error('通信に失敗しました', error));
       }
       genzip();
       </script>
