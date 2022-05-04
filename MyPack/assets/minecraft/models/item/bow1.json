@@ -4,6 +4,7 @@
 		"1": "adamheller/glock_2",
 		"2": "adamheller/black_dura",
 		"3": "adamheller/glock_4",
+		"4": "skin",
 		"particle": "adamheller/black_dura"
 	},
 	"elements": [
@@ -976,6 +977,19 @@
 				"west": {"uv": [0, 0, 2.8, 1.1], "texture": "#1"},
 				"up": {"uv": [0, 0, 0.4, 2.8], "texture": "#1"},
 				"down": {"uv": [0, 0, 0.4, 2.8], "texture": "#1"}
+			}
+		},
+		{
+			"from": [10, -1, 10],
+			"to": [13, 2, 21],
+			"rotation": {"angle": 0, "axis": "y", "origin": [19, 8, 21]},
+			"faces": {
+				"north": {"uv": [12, 4, 13, 5], "texture": "#4"},
+				"east": {"uv": [13, 5, 14, 8], "rotation": 270, "texture": "#4"},
+				"south": {"uv": [11, 4, 12, 5], "texture": "#4"},
+				"west": {"uv": [11, 5, 12, 8], "rotation": 90, "texture": "#4"},
+				"up": {"uv": [12, 5, 13, 8], "rotation": 180, "texture": "#4"},
+				"down": {"uv": [10, 5, 11, 8], "texture": "#4"}
 			}
 		}
 	],
